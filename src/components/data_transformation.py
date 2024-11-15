@@ -9,14 +9,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import save_object  # Assuming you have a function to save objects as files
 from src.utils import save_object
 
 
 @dataclass
 class DataTransformationConfig:
-    # Define the path for the preprocessor object file
     preprocessor_obj_file_path: str = os.path.join('artifacts', "preprocessor.pkl")
+
 
 class DataTransformation:
     def __init__(self):
@@ -30,11 +29,8 @@ class DataTransformation:
         try:
             numerical_columns = ["writing_score", "reading_score"]
             categorical_columns = [
-                "gender",
-                "race_ethnicity",
-                "parental_level_of_education",
-                "lunch",
-                "test_preparation_course"
+                "gender", "race_ethnicity", "parental_level_of_education", 
+                "lunch", "test_preparation_course"
             ]
             
             # Pipeline for numerical features
@@ -47,11 +43,10 @@ class DataTransformation:
             cat_pipeline = Pipeline(steps=[
                 ("imputer", SimpleImputer(strategy="most_frequent")),
                 ("one_hot_encoder", OneHotEncoder()),
-                ("scaler", StandardScaler(with_mean=False))  # Use with_mean=False for sparse matrices
+                ("scaler", StandardScaler(with_mean=False))
             ])
 
-            logging.info("Numerical Columns Standard Scaling Completed")
-            logging.info("Categorical Columns Encoding Completed")
+            logging.info("Numerical and categorical preprocessing pipelines created.")
 
             # ColumnTransformer to apply pipelines to respective columns
             preprocessor = ColumnTransformer(
@@ -102,12 +97,8 @@ class DataTransformation:
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
 
             # Combine input features and target into single arrays
-            train_arr = np.c_[
-                input_feature_train_arr, np.array(target_feature_train_df)
-            ]
-            test_arr = np.c_[
-                input_feature_test_arr, np.array(target_feature_test_df)
-            ]
+            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
+            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info("Data transformation completed and saving preprocessor object")
 
