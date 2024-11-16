@@ -1,1 +1,133 @@
-<h1>Welcome to the home page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Prediction App</title>
+    
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6D5B8E, #FF6F91);
+            color: white;
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Main Container Styles */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #FF6F91;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #FF3B60;
+            transform: translateY(-3px);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+        }
+
+        footer a {
+            color: #FF6F91;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Prediction App</h1>
+        <h2>Your Smart AI Companion for Data Predictions</h2>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="main-container">
+        <p>Ready to explore the power of AI? Click below to start your journey!</p>
+        
+        <div class="button-container">
+            <a href="/predictdata">
+                <button class="btn">Start Prediction</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 <a href="https://www.yourcompany.com">Your Company</a>. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
